@@ -80,7 +80,7 @@ def convert_hf_checkpoint(
     for bin_file in bin_files:
         print("Processing", bin_file)
 
-        hf_weights = torch.load(checkpoint_dir / bin_file, map_location="cpu")
+        hf_weights = torch.load(checkpoint_dir / bin_file)
 
         for name, param in hf_weights.items():
             param = param.to(dtype=dtype)
